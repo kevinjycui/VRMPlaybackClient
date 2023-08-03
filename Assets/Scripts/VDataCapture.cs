@@ -29,6 +29,9 @@ public class VDataCapture : MonoBehaviour
     private Button loadButton;
 
     [SerializeField]
+    private InputField loadSource;
+
+    [SerializeField]
     private VDataPlayback playback;
 
     [SerializeField]
@@ -94,7 +97,8 @@ public class VDataCapture : MonoBehaviour
             goAudioSource = this.GetComponent<AudioSource>();    
         }
         saveButton.interactable = false;
-        loadButton.interactable = File.Exists(Path.Combine(Application.persistentDataPath, "Audio/prediction.wav"));
+        loadButton.interactable = true;
+        loadSource.text = "";
     }
 
     public void StartRecording()
@@ -150,7 +154,7 @@ public class VDataCapture : MonoBehaviour
         recordButton.GetComponentInChildren<Text>().text = "Redo Recording";
         recordButton.interactable = true;
         saveButton.interactable = true;
-        loadButton.interactable = File.Exists(Path.Combine(Application.persistentDataPath, "Audio/prediction.wav"));
+        loadButton.interactable = true;
     }
 
     public void SaveRecording()
@@ -168,11 +172,22 @@ public class VDataCapture : MonoBehaviour
     {
         goAudioSource.loop = true;
 
-        goAudioSource.clip = await SavWav.Load("Audio/prediction.wav");
+        if (loadSource.text == "") {
+            loadSource.text = "prediction";
+        }
+
+        if (!File.Exists(Path.Combine(Application.persistentDataPath, "Audio/" + loadSource.text + ".wav")) ||
+            !File.Exists(Path.Combine(Application.persistentDataPath, "Blendshapes/" + loadSource.text + ".csv")) ||
+            !File.Exists(Path.Combine(Application.persistentDataPath, "Bones/" + loadSource.text + ".csv"))) {
+                loadSource.text = "";
+                return;
+            }
+
+        goAudioSource.clip = await SavWav.Load("Audio/" + loadSource.text + ".wav");
         recordingDuration = goAudioSource.clip.length;
         
-        BlendShapeData = SavCsv.Load("Blendshapes/prediction.csv");
-        BoneData = SavCsv.Load("Bones/prediction.csv");
+        BlendShapeData = SavCsv.Load("Blendshapes/" + loadSource.text + ".csv");
+        BoneData = SavCsv.Load("Bones/" + loadSource.text + ".csv");
 
         StartCoroutine(PlayAudioDelay());
         
@@ -181,7 +196,7 @@ public class VDataCapture : MonoBehaviour
         recordButton.GetComponentInChildren<Text>().text = "Start Recording";
         recordButton.interactable = true;
         saveButton.interactable = false;
-        loadButton.interactable = false;
+        loadButton.interactable = true;
     }
 
     public int GetBlendShapeRecordLength()
