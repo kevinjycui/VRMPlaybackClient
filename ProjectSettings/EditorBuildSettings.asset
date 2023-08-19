@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/VRMPlaybackClient.unity
+    guid: a8cb6a0ea0acf0e4399570a0194b57a1
   m_configObjects: {}
