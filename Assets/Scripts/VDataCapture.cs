@@ -32,6 +32,9 @@ public class VDataCapture : MonoBehaviour
     private InputField loadSource;
 
     [SerializeField]
+    private Text timeText;
+
+    [SerializeField]
     private VDataPlayback playback;
 
     [SerializeField]
@@ -99,6 +102,17 @@ public class VDataCapture : MonoBehaviour
         saveButton.interactable = false;
         loadButton.interactable = true;
         loadSource.text = "";
+    }
+
+    void Update()
+    {
+        if (startTime == -1) {
+            return;
+        }
+        float timeLeft = recordingDuration - (Time.realtimeSinceStartup - startTime);
+        if (timeLeft >= 0) {
+            timeText.text = timeLeft.ToString("n1") + "s";
+        }
     }
 
     public void StartRecording()
