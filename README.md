@@ -6,7 +6,7 @@ Capture and playback of VRM motion data in VMC protocol
 Built with [UniGLTF](https://github.com/ousttrue/UniGLTF/releases/tag/v1.27), [UniVRM](https://github.com/vrm-c/UniVRM/releases/tag/v0.113.0), [uOSC](https://github.com/hecomi/uOSC/releases/tag/v2.2.0), [EVMC4U](https://github.com/gpsnmeajp/EasyVirtualMotionCaptureForUnity/releases/tag/v4.0a) (MIT License)
 
 ### To use
-Open the VRMPlaybackClient. It should look like so:
+Unzip and execute [VRMPlaybackClient.exe](https://github.com/kevinjycui/VRMPlaybackClient/releases) (Windows only). It should look like so:
 
 ![](github/Screenshot.png)
 
