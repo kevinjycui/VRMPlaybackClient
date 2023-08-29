@@ -21,9 +21,19 @@ public class VDataPlayback : MonoBehaviour
     [SerializeField]
     private VDataCapture captureObject;
 
+    private IEnumerator loopTimer; 
+    private bool looping = false;
+
     void Start()
     {
         client = GetComponent<uOSC.uOscClient>();
+    }
+
+    public void RestartClient(int port)
+    {
+        client.StopClient();
+        client.port = port;
+        client.StartClient();
     }
 
     public void Init()
@@ -32,7 +42,17 @@ public class VDataPlayback : MonoBehaviour
         boneIndex = 0;
         loadTime = Time.realtimeSinceStartup;
 
-        StartCoroutine(WaitForStopRecording((int) captureObject.recordingDuration));
+        loopTimer = WaitForStopRecording(captureObject.playbackDuration);
+        looping = true;
+        StartCoroutine(loopTimer);
+    }
+
+    public void Stop()
+    {
+        if (looping) {
+            StopCoroutine(loopTimer);
+            looping = false;
+        }
     }
 
     IEnumerator WaitForStopRecording(int seconds)

@@ -140,5 +140,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a12f5fb3506816478235e85f5941d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recordingDuration: 0
   recordButton: {fileID: 0}
+  stopButton: {fileID: 0}
   saveButton: {fileID: 0}
+  loadButton: {fileID: 0}
+  loadSource: {fileID: 0}
+  timeText: {fileID: 0}
+  directoryText: {fileID: 0}
+  playback: {fileID: 0}
+  server: {fileID: 0}
+  livePort: 39540
+  playbackPort: 39541
+  recordRate: 0.01
+  audioDelay: 0.05
+  staticInterval: 0
+  recordAudio: 1
+  playbackDuration: 0
+  recordAudioToggle: {fileID: 0}
+  deviceDropdown: {fileID: 0}
+  maxDuration: 3599
