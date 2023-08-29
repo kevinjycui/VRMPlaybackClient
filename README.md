@@ -18,7 +18,6 @@ Play the scene. It should begin copying the playback in the VMC software. If you
 Disable "Show avatar" and paste the port under VMC Playback Port to the receiving port of your third-party VMC player (e.g. in VSeeFace, General Settings > OSC/VMC receiver (disables tracking)).
 
 ### Adjustable Parameters
-DataCapture
  * VMC Capture Port: Port for your third-party VMC motion capture software.
  * VMC Playback Port: Port for VMC VRMPlaybackClient; can be used to send data to another VMC player.
  * Show avatar: Show the avatar in VMCPlaybackClient. Must disable this to send data to another VMC player.
