@@ -12,7 +12,7 @@ Unzip and execute [VRMPlaybackClient.exe](https://github.com/kevinjycui/VRMPlayb
 
 Open VMC software (such as [VSeeFace](https://www.vseeface.icu/)) and toggle on sending/forwarding OSC/VMC protocol data to the port `39540`.
 
-Play the scene. It should begin copying the playback in the VMC software. If you choose to record audio, ensure you have selected a microphone that is accessible by VRMPlaybackClient. Captures with audio are limited to 1 hour (59m59s) while captures without audio are unlimited. Record yourself by clicking "Start Recording". Save the recording by clicking "Save Recording" once it finishes. Saved recordings will go in `~/AppData/LocalLow/Junferno/VRMPlaybackClient`. To load a recording, select the file from the dropdown and click "Load".
+Play the scene. It should begin copying the playback in the VMC software. If you choose to record audio, ensure you have selected a microphone that is accessible by VRMPlaybackClient. Captures with audio are limited to 1 hour (59m59s) while captures without audio are unlimited. Record yourself by clicking he red "Record" button. Stop the recording by clicking the green "Stop" button. Save the recording by clicking the "Stop" button once it finishes. Saved recordings will go in `~/AppData/LocalLow/Junferno/VRMPlaybackClient`. To load a recording, select the file from the dropdown and click "Load".
 
 ### Playback in third-party VMC player
 Disable "Show avatar" and paste the port under VMC Playback Port to the receiving port of your third-party VMC player (e.g. in VSeeFace, General Settings > OSC/VMC receiver (disables tracking)).
